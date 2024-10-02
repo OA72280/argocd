@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podrick
+  namespace: workloads
+spec:
+  containers:
+    - name: centos
+      image: docker.io/centos:7
+      commnd: ["/bin/sleep"]
+      args: [ "3600" ]
