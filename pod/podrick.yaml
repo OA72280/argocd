@@ -7,5 +7,3 @@ spec:
   containers:
     - name: centos
       image: docker.io/centos:7
-      commnd: ["/bin/sleep"]
-      args: [ "3600" ]
