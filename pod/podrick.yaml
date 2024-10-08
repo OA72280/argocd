@@ -7,3 +7,30 @@ spec:
   containers:
     - name: centos
       image: docker.io/centos:7
+      command: ["/bin/sleep"]
+      args: [ "3600" ]
+      volumeMounts:
+        - mountPath: /mnt/data
+          name: podrick-data
+  volumes:
+    - name: podrick-data
+      persistentVolumeClaim:
+        claimName: podrick-data
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotataions:
+  volume.beta.kubernetes.io/storage-provisioner: csi-vxflexos.dellemc.com
+name: podrick-data
+namespace: workloads
+finalizers:
+- kubernetes.io/pvc-protection
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+  storageClassName: pf03-platinum
+  volumeMode: Filesystem
