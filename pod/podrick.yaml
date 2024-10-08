@@ -32,5 +32,5 @@ spec:
   resources:
     requests:
       storage: 8Gi
-  storageClassName: px03-platinum
+  storageClassName: pfx03-platinum
   volumeMode: Filesystem
