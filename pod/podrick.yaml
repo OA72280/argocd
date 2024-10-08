@@ -20,17 +20,18 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  annotataions:
-  volume.beta.kubernetes.io/storage-provisioner: csi-vxflexos.dellemc.com
-name: podrick-data
-namespace: workloads
-finalizers:
-- kubernetes.io/pvc-protection
+  name: podrick-data
+  namespace: workloads
+  annotations:
+    volume.beta.kubernetes.io/storage-provisioner: csi-vxflexos.dellemc.com
+  finalizers:
+    - kubernetes.io/pvc-protection
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
       storage: 8Gi
   storageClassName: pfx03-platinum
   volumeMode: Filesystem
+
