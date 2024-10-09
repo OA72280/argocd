@@ -29,7 +29,7 @@ metadata:
   namespace: fio
 spec:
   podManagementPolicy: Parallel
-  replicas: 0
+  replicas: 10
   serviceName: fio-4k-p
   selector:
     matchLabels:
