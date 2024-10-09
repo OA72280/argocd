@@ -12,7 +12,7 @@ spec:
       type: ethernet
       state: up
       ipv4:
-        dhcp: true
+        dhcp: false
         enabled: true
       mtu: 9000
 ---
@@ -30,6 +30,6 @@ spec:
       type: ethernet
       state: up
       ipv4:
-        dhcp: true
+        dhcp: false
         enabled: true
       mtu: 9000
