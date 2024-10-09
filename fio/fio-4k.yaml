@@ -1,4 +1,4 @@
-kind: COnfigMap
+kind: ConfigMap
 apiVersion: v1
 metadata:
   name: fio-job-config-4k
