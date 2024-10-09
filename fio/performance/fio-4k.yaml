@@ -1,0 +1,70 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: fio-job-config-4k
+  namespace: fio
+data:
+  fio.job: |-
+    [global]
+    ioengine=libaio
+    filesize=1g
+    direct=1
+    group_reporting
+    runtime=30m
+    time_based
+    invalidate=1
+    norandommap
+    randrepeat=0
+    rw=randrw
+    rwmixread=80
+    numjobs=4
+    bssplit=4K
+    iodepth=16
+    [powerflex-perf-test]
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: fio-4k-p
+  namespace: fio
+spec:
+  podManagementPolicy: Parallel
+  replicas: 0
+  serviceName: fio-4k-p
+  selector:
+    matchLabels:
+      app: fio-4k-p
+  template:
+    metadata:
+      labels:
+        app: fio-4k-p
+    spec:
+      containers:
+      - name: fio-4k-p
+        image: docker.io/xridge/fio:3.13-r1
+        imagePullPolicy: IfNotPresent
+        command: ["fio"]
+        args: ["/configs/fio.job", "--eta=never", "--filename_format=$jobnum.$filenum", "--directory=/scratch/"]
+        volumeMounts:
+        - name: fio-config-vol
+          mountPath: /configs
+        - name: fio-data-4k-p
+          mountPath: /scratch/
+      volumes:
+      - name: fio-config-vol
+        configMap:
+          name: fio-job-config-4k
+  updateStrategy:
+    rollingUpdate:
+      partitions: 0
+    type: RollingUpdate
+  volumeClaimTemplates:
+  - metadata:
+      name: fio-data-4k-p
+    spec:
+      storageClassName: pfx03-platinum
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 8Gi
