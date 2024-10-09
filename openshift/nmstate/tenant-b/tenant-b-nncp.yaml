@@ -1,0 +1,95 @@
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: tenant-b-001
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: "tenant-b-001"
+  desiredState:
+    interfaces:
+    - name: ens34
+      description: PFx Data 1
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: false
+        auto-gateway: false
+        auto-dns: false
+        address:
+        - ip: 192.168.155.24
+          prefix-length: 24
+    - name: ens35
+      description: PFx Data 1
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: false
+        auto-gateway: false
+        auto-dns: false
+        address:
+        - ip: 192.168.156.24
+          prefix-length: 24
+---
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: tenant-b-002
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: "tenant-b-002"
+  desiredState:
+    interfaces:
+    - name: ens34
+      description: PFx Data 1
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: false
+        auto-gateway: false
+        auto-dns: false
+        address:
+        - ip: 192.168.155.25
+          prefix-length: 24
+    - name: ens35
+      description: PFx Data 1
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: false
+        auto-gateway: false
+        auto-dns: false
+        address:
+        - ip: 192.168.156.25
+          prefix-length: 24
+---
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: tenant-a-003
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: "tenant-b-003"
+  desiredState:
+    interfaces:
+    - name: ens34
+      description: PFx Data 1
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: false
+        auto-gateway: false
+        auto-dns: false
+        address:
+        - ip: 192.168.155.26
+          prefix-length: 24
+    - name: ens35
+      description: PFx Data 1
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: false
+        auto-gateway: false
+        auto-dns: false
+        address:
+        - ip: 192.168.156.26
+          prefix-length: 24
