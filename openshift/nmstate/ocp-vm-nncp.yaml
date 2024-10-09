@@ -1,0 +1,35 @@
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: data1-155
+spec:
+  nodeSelector:
+    node-role.kubernetes.io/worker: ""
+  desiredState:
+    interfaces:
+    - name: ens34
+      description: PFx Data Network 1
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: false
+        enabled: true
+      mtu: 9000
+---
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: data1-156
+spec:
+  nodeSelector:
+    node-role.kubernetes.io/worker: ""
+  desiredState:
+    interfaces:
+    - name: ens35
+      description: PFx Data Network 2
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: false
+        enabled: true
+      mtu: 9000
