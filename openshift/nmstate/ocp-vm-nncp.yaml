@@ -19,7 +19,7 @@ spec:
 apiVersion: nmstate.io/v1
 kind: NodeNetworkConfigurationPolicy
 metadata:
-  name: data1-156
+  name: data2-156
 spec:
   nodeSelector:
     node-role.kubernetes.io/worker: ""
