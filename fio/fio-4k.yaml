@@ -1,9 +1,3 @@
-# Fio Performance Testing
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: fio
----
 kind: COnfigMap
 apiVersion: v1
 metadata:
