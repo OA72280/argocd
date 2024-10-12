@@ -1,1 +1,16 @@
-#
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  labels:
+    machineconfiguration.openshift.io/role: master
+  name: master-chrony-configuration
+spec:
+  config:
+    ignition:
+      version: 2.2.0
+    storage:
+      files:
+        - path: /etc/chrony.conf
+          mode: 420
+          contents:
+            source: data:text/plain:charset=utf-8;base64,c2VydmVyIDAudXMucG9vbC5udHAub3JnCnNlcnZ1ciAxLnVzLnBvb2wubnRwLm9yZwpzZXJ2ZXIgMi51cy5wb29sLm50cC5vcmcKc2VydmVyIDMudXMucG9vbC5udHAub3JnCmRyaWZ0ZmlsZSAvdmFyL2xpYi9jaHJvbnkvZHJpZnQKbWFrZXN0ZXAgMS4wIDMKcnRjc3luYwpsb2dkaXIgL3Zhci9sb2cvY2hyb255CmtleWZpbGUgL2V0Vy9jaHJvbnkua2V5cwo=
