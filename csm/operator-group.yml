@@ -1,0 +1,12 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations:
+    olm.providedAPIs: ContainerStorageModule.v1.storage.dell.com
+  name: dell-csm-operatorgroup
+  namespace: dell-csm-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  targetNamespaces:
+    - dell-csm-operator
