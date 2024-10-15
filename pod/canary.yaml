@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: podrick
+  name: canary
   namespace: workloads
 spec:
   containers:
@@ -11,16 +11,16 @@ spec:
       args: [ "3600" ]
       volumeMounts:
         - mountPath: /mnt/data
-          name: podrick-data
+          name: canary-data
   volumes:
-    - name: podrick-data
+    - name: canary-data
       persistentVolumeClaim:
-        claimName: podrick-data
+        claimName: canary-data
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: podrick-data
+  name: canary-data
   namespace: workloads
   annotations:
     volume.beta.kubernetes.io/storage-provisioner: csi-vxflexos.dellemc.com
