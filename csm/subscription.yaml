@@ -4,7 +4,7 @@ metadata:
   name: dell-csm-subscription
   namespace: dell-csm-operator
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   name: dell-csm-operator
   source: dell-csm-catalogsource
