@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dell-csm-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+spec:
+  finalizers:
+  - kubernetes
