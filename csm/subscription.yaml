@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: dell-csm-subscription
+  namespace: dell-csm-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  name: dell-csm-operator
+  source: dell-csm-catalogsource
+  sourceNamespace: dell-csm-operator
