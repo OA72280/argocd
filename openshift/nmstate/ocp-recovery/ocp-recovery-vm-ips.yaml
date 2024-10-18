@@ -1,0 +1,95 @@
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: ocp-recovery-001
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: "ocp-recovery-001"
+  desiredState:
+    interfaces:
+    - name: ens34
+      description: PFx Data 1
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: false
+        auto-gateway: false
+        auto-dns: false
+        address:
+        - ip: 192.168.155.39
+          prefix-length: 24
+    - name: ens35
+      description: PFx Data 1
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: false
+        auto-gateway: false
+        auto-dns: false
+        address:
+        - ip: 192.168.156.39
+          prefix-length: 24
+---
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: ocp-recovery-002
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: "ocp-recovery-002"
+  desiredState:
+    interfaces:
+    - name: ens34
+      description: PFx Data 1
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: false
+        auto-gateway: false
+        auto-dns: false
+        address:
+        - ip: 192.168.155.40
+          prefix-length: 24
+    - name: ens35
+      description: PFx Data 1
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: false
+        auto-gateway: false
+        auto-dns: false
+        address:
+        - ip: 192.168.156.40
+          prefix-length: 24
+---
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: ocp-recovery-003
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: "ocp-recovery-003"
+  desiredState:
+    interfaces:
+    - name: ens34
+      description: PFx Data 1
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: false
+        auto-gateway: false
+        auto-dns: false
+        address:
+        - ip: 192.168.155.41
+          prefix-length: 24
+    - name: ens35
+      description: PFx Data 1
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: false
+        auto-gateway: false
+        auto-dns: false
+        address:
+        - ip: 192.168.156.41
+          prefix-length: 24
