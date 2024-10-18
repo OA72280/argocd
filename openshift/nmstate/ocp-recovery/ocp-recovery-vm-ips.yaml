@@ -16,7 +16,7 @@ spec:
         auto-gateway: false
         auto-dns: false
         address:
-        - ip: 192.168.155.39
+        - ip: 192.168.151.39
           prefix-length: 24
     - name: ens35
       description: PFx Data 1
@@ -27,7 +27,7 @@ spec:
         auto-gateway: false
         auto-dns: false
         address:
-        - ip: 192.168.156.39
+        - ip: 192.168.152.39
           prefix-length: 24
 ---
 apiVersion: nmstate.io/v1
@@ -48,7 +48,7 @@ spec:
         auto-gateway: false
         auto-dns: false
         address:
-        - ip: 192.168.155.40
+        - ip: 192.168.151.40
           prefix-length: 24
     - name: ens35
       description: PFx Data 1
@@ -59,7 +59,7 @@ spec:
         auto-gateway: false
         auto-dns: false
         address:
-        - ip: 192.168.156.40
+        - ip: 192.168.152.40
           prefix-length: 24
 ---
 apiVersion: nmstate.io/v1
@@ -80,7 +80,7 @@ spec:
         auto-gateway: false
         auto-dns: false
         address:
-        - ip: 192.168.155.41
+        - ip: 192.168.151.41
           prefix-length: 24
     - name: ens35
       description: PFx Data 1
@@ -91,5 +91,5 @@ spec:
         auto-gateway: false
         auto-dns: false
         address:
-        - ip: 192.168.156.41
+        - ip: 192.168.152.41
           prefix-length: 24
