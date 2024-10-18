@@ -65,7 +65,7 @@ spec:
 apiVersion: nmstate.io/v1
 kind: NodeNetworkConfigurationPolicy
 metadata:
-  name: tenant-a-003
+  name: tenant-b-003
 spec:
   nodeSelector:
     kubernetes.io/hostname: "tenant-b-003"
